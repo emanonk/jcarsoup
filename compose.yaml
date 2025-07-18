@@ -1,0 +1,17 @@
+services:
+  mysql:
+    image: mysql:8
+    container_name: cargr-mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: cargr_db
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: cargr_user
+      MYSQL_PASSWORD: secret
+    ports:
+      - "3306:3306"
+    volumes:
+      - cargr_mysql_data:/var/lib/mysql
+
+volumes:
+  cargr_mysql_data:
